@@ -19,8 +19,10 @@ class Cleric {
     }
   }
 
-  void pray(int time) {
-    mp += time + Random().nextInt(3);
+  int pray(int time) {
+    int recoveryMp = time + Random().nextInt(3);
+    mp += recoveryMp;
     print('MP가 회복됨');
+    return recoveryMp;
   }
 }

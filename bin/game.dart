@@ -1,6 +1,8 @@
 import 'cleric.dart';
 import 'hero.dart';
 import 'sword.dart';
+import 'wand.dart';
+import 'wizard.dart';
 
 void main() {
   //새로운 인스턴스
@@ -25,4 +27,10 @@ void main() {
   print(cleric1.hp);
   print(cleric2.mp);
   print(cleric3.mp);
+  final wand = Wand(name: 'asa', power: 1);
+  final wizard = Wizard(name: 'aaqa', hp: 3, mp: 2, wand: wand);
+  // wizard.wand = wand;
+  wizard.hurt(wizard);
+  print(wizard.name);
+  print(wizard.hp);
 }

@@ -21,9 +21,9 @@ class Cleric {
   }
 
   int pray(int time) {
-    int recoveryMp = time + Random().nextInt(3);
-    int maxRecoverMp = maxMp - mp;
-    int gain = min(maxRecoverMp, recoveryMp);
+    final recoveryMp = time + Random().nextInt(3);
+    final maxRecoverMp = maxMp - mp;
+    final gain = min(maxRecoverMp, recoveryMp);
 
     mp += gain;
     print("$gain 만큼회복");

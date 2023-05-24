@@ -13,8 +13,8 @@ void main() {
 
   final cleric = Cleric(name: 'dd', hp: 11, mp: 5);
 
-  cleric.selfAid();
-  print(cleric.hp);
+  // cleric.selfAid();
+  // print(cleric.hp);
   cleric.pray(2);
   print(cleric.mp);
 

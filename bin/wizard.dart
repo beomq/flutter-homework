@@ -2,7 +2,7 @@ import 'hero.dart';
 import 'wand.dart';
 
 class Wizard {
-  String? name;
+  String name;
   int hp;
   int mp;
   Wand? wand;
@@ -13,11 +13,8 @@ class Wizard {
     required this.mp,
     required this.wand,
   }) {
-    int? length = name?.length;
-    if (length != null && length < 3) {
+    if (name.length < 3) {
       throw Exception('마법사의 이름의 길이를 확인하세요');
-    } else if (length == null) {
-      throw Exception('이름을 입력하세요');
     }
     if (mp < 0) {
       throw Exception('마나는 0이상이어야 합니다');

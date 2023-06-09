@@ -30,12 +30,15 @@ Future<void> saveImage() async {
     print('다운로드 시작');
 
     await saveFile(bytes, fileName);
-
+    stopwatch.stop(); // 작은 디테일
     print('다운로드 끝');
     print('=========');
     print('소요시간 : ${stopwatch.elapsed}');
     print('용량 : ${bytes.lengthInBytes}bytes');
   } catch (e) {
     print('url을 확인해 주세요');
+    final bytes = await downloadImage(
+        'https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202305/12/e53dd2d7-5c8f-42c1-bc2a-2a12157191b1.jpg');
+    await saveFile(bytes, fileName);
   }
 }

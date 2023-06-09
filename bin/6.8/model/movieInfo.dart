@@ -8,15 +8,14 @@ class MovieInfo {
   });
   late final Dates dates;
   late final int page;
-  late final List<Results> results;
+  late final List<Movie> results;
   late final int totalPages;
   late final int totalResults;
 
   MovieInfo.fromJson(Map<String, dynamic> json) {
     dates = Dates.fromJson(json['dates']);
     page = json['page'];
-    results =
-        List.from(json['results']).map((e) => Results.fromJson(e)).toList();
+    results = List.from(json['results']).map((e) => Movie.fromJson(e)).toList();
     totalPages = json['total_pages'];
     totalResults = json['total_results'];
   }
@@ -53,8 +52,8 @@ class Dates {
   }
 }
 
-class Results {
-  Results({
+class Movie {
+  Movie({
     required this.adult,
     required this.backdropPath,
     required this.genreIds,
@@ -85,7 +84,7 @@ class Results {
   late final num voteAverage;
   late final int voteCount;
 
-  Results.fromJson(Map<String, dynamic> json) {
+  Movie.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = List.castFrom<dynamic, int>(json['genre_ids']);

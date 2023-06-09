@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import 'model/checkMask.dart';
+import 'model/check_mask.dart';
 
 void main() async {
   final maskStores = await checkMaskStock();

@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'model/movieDetail.dart';
-import 'model/movieInfo.dart';
+import 'model/movie_detail.dart';
+import 'model/movie_info.dart';
 
 void main() async {
   final movies = await getMovies();

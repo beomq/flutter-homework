@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 
 void main() async {
-  await test();
+  await saveImage();
 }
 
 Future<Uint8List> downloadImage(String url) async {
@@ -18,7 +18,7 @@ Future<File> saveFile(Uint8List bytes, String fileName) async {
   return save;
 }
 
-Future<void> test() async {
+Future<void> saveImage() async {
   final url = 'http://alimipro.com/favicon.ico';
   final fileName = '/Users/beom_q/StudioProjects/untitled7/bin/6.8/icon.ico';
 

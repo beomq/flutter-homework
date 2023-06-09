@@ -5,13 +5,14 @@ import 'package:http/http.dart' as http;
 import 'model/checkMask.dart';
 
 void main() async {
-  final mask = await checkMaskStock();
-  final plentyMask = await mask.where((e) => e.remainStat == 'plenty').toList();
+  final maskStores = await checkMaskStock();
+  final plentyMaskStores =
+      maskStores.where((e) => e.remainStat == 'plenty').toList();
 
-  print('마스크가 충분한 스토어는 ${plentyMask.length}개 입니다');
+  print('마스크가 충분한 스토어는 ${plentyMaskStores.length}개 입니다');
 }
 
-Future checkMaskStock() async {
+Future<List<Stores>> checkMaskStock() async {
   final page = 0;
   final limit = 20;
   final response = await http.get(

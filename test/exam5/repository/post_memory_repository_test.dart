@@ -34,17 +34,18 @@ void main() {
 
       posts = await _repository.getPosts();
       expect(posts.length, 4);
-      print(posts.length);
     });
 
     test('updatePost()', () async {
       await _repository.updatePost(Post(0, '0', '0'));
       final firstPost = (await _repository.getPosts())[0];
       expect(firstPost.title, '0');
+      expect(firstPost.body, '0');
+      expect(firstPost.id, 0);
     });
 
     test('deletePost()', () async {
-      final post = Post(0, 'test1', 'test1');
+      final post = Post(1, 'test2', 'test2');
       await _repository.deletePost(post);
       final posts = await _repository.getPosts();
       expect(posts.length, 1);

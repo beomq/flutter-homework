@@ -18,13 +18,18 @@ class PostFileRepositoryImpl implements PostRepository {
   @override
   Future<void> deletePost(Post post) async {
     File file = File('bin/unit_test/exam5/post_file.txt');
-    _posts.where((element) => element.id != post.id).toList();
-    List<String> postJsonList = _posts.map((post) => jsonEncode(post)).toList();
-    file.writeAsString(jsonEncode(postJsonList));
+    _posts = _posts.where((element) => element.id != post.id).toList();
+    List<Map<String, dynamic>> postMapList =
+        _posts.map((post) => post.toJson()).toList();
+    await file.writeAsString(jsonEncode(postMapList));
+
+    print(postMapList);
   }
 
   @override
   Future<List<Post>> getPosts() async {
+    File file = File('bin/unit_test/exam5/post_file.txt');
+    file.readAsString();
     return _posts;
   }
 
@@ -37,8 +42,8 @@ class PostFileRepositoryImpl implements PostRepository {
       }
       return e;
     }).toList();
-
-    List<String> postJsonList = _posts.map((post) => jsonEncode(post)).toList();
-    file.writeAsString(jsonEncode(postJsonList));
+    List<Map<String, dynamic>> postMapList =
+        _posts.map((post) => post.toJson()).toList();
+    file.writeAsString(jsonEncode(postMapList));
   }
 }
